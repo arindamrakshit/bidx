@@ -185,6 +185,10 @@ export const AuctionDetailPage = () => {
               src={auction.imageUrl}
               alt={auction.title}
               className="w-full h-full object-cover"
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=1000&auto=format&fit=crop&q=80';
+              }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between">

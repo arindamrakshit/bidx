@@ -124,7 +124,7 @@ public class DataInitializer implements CommandLineRunner {
                 BigDecimal.valueOf(50000.00),
                 LocalDateTime.now().minusHours(5),
                 LocalDateTime.now().plusHours(60),
-                "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=1000&auto=format&fit=crop&q=80"
+                "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=1000&auto=format&fit=crop&q=80"
         );
     }
 
