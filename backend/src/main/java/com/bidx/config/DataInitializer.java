@@ -126,6 +126,103 @@ public class DataInitializer implements CommandLineRunner {
                 LocalDateTime.now().plusHours(60),
                 "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=1000&auto=format&fit=crop&q=80"
         );
+
+        // 8 Additional Premium Auction Lots
+        createAuction(
+                seller,
+                "Audemars Piguet Royal Oak 'Jumbo' Extra-Thin 16202ST",
+                "Iconic 'Petite Tapisserie' blue dial in stainless steel with AP Calibre 7121 automatic movement, exhibition sapphire caseback, complete box and warranty card.",
+                "Watches",
+                BigDecimal.valueOf(5800000.00),
+                BigDecimal.valueOf(75000.00),
+                LocalDateTime.now().minusHours(2),
+                LocalDateTime.now().plusHours(50),
+                "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1000&auto=format&fit=crop&q=80"
+        );
+
+        createAuction(
+                seller,
+                "Aston Martin DB11 V12 Twin-Turbo Launch Edition",
+                "Finished in Magnetic Silver with Obsidian Black leather interior, 600 horsepower 5.2L twin-turbocharged V12, carbon fiber aeroblade, pristine 8,200 km.",
+                "Automobiles",
+                BigDecimal.valueOf(19500000.00),
+                BigDecimal.valueOf(100000.00),
+                LocalDateTime.now().minusHours(1),
+                LocalDateTime.now().plusHours(84),
+                "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1000&auto=format&fit=crop&q=80"
+        );
+
+        createAuction(
+                seller,
+                "Hasselblad H6D-100c Medium Format Digital Camera",
+                "Flagship 100-megapixel CMOS medium format sensor (53.4 x 40.0mm) capturing 16-bit color depth and 15 stops of dynamic range, includes HC 2,8/80mm lens.",
+                "Electronics",
+                BigDecimal.valueOf(2400000.00),
+                BigDecimal.valueOf(30000.00),
+                LocalDateTime.now().minusHours(3),
+                LocalDateTime.now().plusHours(40),
+                "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=1000&auto=format&fit=crop&q=80"
+        );
+
+        createAuction(
+                seller,
+                "1999 Pokémon 1st Edition Shadowless Charizard Holo #4 PSA 9",
+                "The Holy Grail of vintage trading cards. 1st Edition base set Shadowless holographic Charizard in PSA 9 Mint condition, certified vault custody provenance.",
+                "Collectibles",
+                BigDecimal.valueOf(4500000.00),
+                BigDecimal.valueOf(50000.00),
+                LocalDateTime.now().minusHours(4),
+                LocalDateTime.now().plusHours(68),
+                "https://images.unsplash.com/photo-1613771404784-3a5686aa2be3?w=1000&auto=format&fit=crop&q=80"
+        );
+
+        createAuction(
+                seller,
+                "Patek Philippe Nautilus 5711/1A-010 Piano Black Dial",
+                "Stainless steel Nautilus case with gradient horizontal embossed dial, Calibre 324 S C movement, pristine unpolished bevels with original archive certificate.",
+                "Watches",
+                BigDecimal.valueOf(8900000.00),
+                BigDecimal.valueOf(100000.00),
+                LocalDateTime.now().minusHours(1),
+                LocalDateTime.now().plusHours(72),
+                "https://images.unsplash.com/photo-1547996160-71dfabb1a7b1?w=1000&auto=format&fit=crop&q=80"
+        );
+
+        createAuction(
+                seller,
+                "Ferrari F8 Tributo Rosso Corsa w/ Carbon Package",
+                "Twin-turbo 3.9-liter V8 generating 710 hp, carbon fiber racing seats, passenger display, Scuderia shields, sport exhaust, only 2,100 delivery km.",
+                "Automobiles",
+                BigDecimal.valueOf(38000000.00),
+                BigDecimal.valueOf(200000.00),
+                LocalDateTime.now().minusHours(6),
+                LocalDateTime.now().plusHours(96),
+                "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=1000&auto=format&fit=crop&q=80"
+        );
+
+        createAuction(
+                seller,
+                "Sennheiser HE 1 Orpheus Electrostatic Headphone System",
+                "The pinnacle of audio engineering. Carrara marble tube amplifier chassis with motorized vacuum tubes and 2.4-micrometer platinum-vaporized diaphragms.",
+                "Electronics",
+                BigDecimal.valueOf(4800000.00),
+                BigDecimal.valueOf(50000.00),
+                LocalDateTime.now().minusHours(2),
+                LocalDateTime.now().plusHours(48),
+                "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=1000&auto=format&fit=crop&q=80"
+        );
+
+        createAuction(
+                seller,
+                "Jean-Michel Basquiat 'Untitled Skull' Archival Screenprint",
+                "Limited edition estate-stamped screenprint on Somerset Satin paper, numbered 42/85, authenticated by the Estate of Jean-Michel Basquiat committee.",
+                "Artwork",
+                BigDecimal.valueOf(6200000.00),
+                BigDecimal.valueOf(75000.00),
+                LocalDateTime.now().minusHours(5),
+                LocalDateTime.now().plusHours(76),
+                "https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=1000&auto=format&fit=crop&q=80"
+        );
     }
 
     private void createAuction(User seller, String title, String desc, String category, BigDecimal price, BigDecimal inc, LocalDateTime start, LocalDateTime end, String img) {
