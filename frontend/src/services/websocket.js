@@ -15,10 +15,13 @@ class WebSocketService {
       return;
     }
 
-    const socketUrl = import.meta.env.VITE_WS_URL || 'http://localhost:8080/ws';
+    const defaultWs = (typeof window !== 'undefined' && window.location.hostname !== 'localhost')
+      ? 'https://late-sloths-unite.loca.lt/ws'
+      : 'http://localhost:8080/ws';
+
+    const socketUrl = import.meta.env.VITE_WS_URL || defaultWs;
     const socket = new SockJS(socketUrl);
     this.stompClient = Stomp.over(socket);
-    // Disable noisy debug logs in production
     this.stompClient.debug = null;
 
     this.stompClient.connect({}, () => {
