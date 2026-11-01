@@ -1,0 +1,73 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: bidx-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: bidx_db
+      MYSQL_USER: bidx
+      MYSQL_PASSWORD: bidxpassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - bidx-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 10s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    container_name: bidx-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    networks:
+      - bidx-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: bidx-backend
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: mysql
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE: bidx_db
+      MYSQL_USER: bidx
+      MYSQL_PASSWORD: bidxpassword
+      JWT_SECRET: BidXSecretKeyForJwtAuthenticationSuperSecret32CharsLong!
+    networks:
+      - bidx-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: bidx-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+    networks:
+      - bidx-network
+
+volumes:
+  mysql_data:
+
+networks:
+  bidx-network:
+    driver: bridge
