@@ -16,7 +16,7 @@ class WebSocketService {
     }
 
     const defaultWs = (typeof window !== 'undefined' && window.location.hostname !== 'localhost')
-      ? 'https://late-sloths-unite.loca.lt/ws'
+      ? 'https://bidx-backend-stc1.onrender.com/ws'
       : 'http://localhost:8080/ws';
 
     const socketUrl = import.meta.env.VITE_WS_URL || defaultWs;

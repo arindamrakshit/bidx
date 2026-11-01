@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-// When running in production (e.g. Vercel), fall back to public live backend tunnel if VITE_API_URL is unset
+// Public Cloud Backend deployed on Render
 const DEFAULT_URL = (typeof window !== 'undefined' && window.location.hostname !== 'localhost')
-  ? 'https://late-sloths-unite.loca.lt/api'
+  ? 'https://bidx-backend-stc1.onrender.com/api'
   : 'http://localhost:8080/api';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || DEFAULT_URL;
@@ -11,7 +11,6 @@ const api = axios.create({
   baseURL: API_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
-    'bypass-tunnel-reminder': 'true',
   },
 });
 
